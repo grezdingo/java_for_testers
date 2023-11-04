@@ -1,12 +1,12 @@
 package ru.stqa.geometry.figures;
 
 public class Rectangle {
-    public static void printRectangleArea(double a, double b) {
-        String text = String.format("The area of a rectangle with sides %f and %f = %f", a, b, rectangleArea(a, b));
+    public static void printArea(double a, double b) {
+        String text = String.format("The area of the rectangle with sides %f and %f = %f", a, b, area(a, b));
         System.out.println(text);
     }
 
-    private static double rectangleArea(double a, double b) {
+    private static double area(double a, double b) {
         return a * b;
     }
 }
