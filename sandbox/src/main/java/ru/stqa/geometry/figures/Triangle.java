@@ -3,13 +3,15 @@ package ru.stqa.geometry.figures;
 public record Triangle(double sideA, double sideB, double sideC) {
 
     public Triangle {
-        boolean triangleExists = sideA > 0 && sideB > 0 && sideC > 0 &&
-                (sideA + sideB > sideC) &&
-                (sideA + sideC > sideB) &&
-                (sideB + sideC > sideA);
+        boolean triangleExists =
+                (sideA + sideB >= sideC) &&
+                (sideA + sideC >= sideB) &&
+                (sideB + sideC >= sideA);
+        if (sideA < 0 || sideB < 0 || sideC < 0) {
+            throw new IllegalArgumentException("Triangle sides should be non-negative");
+        }
         if (!triangleExists) {
-            throw new IllegalArgumentException(String.format("Triangle with sides %f, %f and %f does not exist",
-                    sideA, sideB, sideC));
+            throw new IllegalArgumentException("Sum of any two sides must be greater than or equal to the remaining side");
         }
     }
 
