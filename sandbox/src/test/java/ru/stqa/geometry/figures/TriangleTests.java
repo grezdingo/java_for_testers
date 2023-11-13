@@ -14,4 +14,24 @@ public class TriangleTests {
     void canCalculateArea() {
         Assertions.assertEquals(3.9, new Triangle(3.0, 3.0, 3.0).area());
     }
+
+    @Test
+    void cannotCreateTriangleWithNegativeSide() {
+        try {
+            new Triangle(-1.0, 3.0, 2.0);
+            Assertions.fail();
+        } catch (IllegalArgumentException exception) {
+            // OK
+        }
+    }
+
+    @Test
+    void cannotCreateTriangleWithSides() {
+        try {
+            new Triangle(8.0, 3.0, 3.0);
+            Assertions.fail();
+        } catch (IllegalArgumentException exception) {
+            // OK
+        }
+    }
 }
