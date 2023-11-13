@@ -1,6 +1,34 @@
 package ru.stqa.geometry.figures;
 
+import java.util.Objects;
+import java.util.HashSet;
+
 public record Triangle(double sideA, double sideB, double sideC) {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+
+        HashSet<Double> thisSides = convertTriangleToHashSet(this);
+        HashSet<Double> triangleSides = convertTriangleToHashSet(triangle);
+
+        return thisSides.equals(triangleSides);
+    }
+
+    private static HashSet<Double> convertTriangleToHashSet(Triangle triangle) {
+        HashSet<Double> triangleSides = new HashSet<>();
+        triangleSides.add(triangle.sideA);
+        triangleSides.add(triangle.sideB);
+        triangleSides.add(triangle.sideC);
+        return triangleSides;
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 
     public Triangle {
         boolean triangleExists =
