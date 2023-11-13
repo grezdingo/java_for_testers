@@ -24,7 +24,7 @@ public class GroupCreationTests {
 
     @Test
     public void canCreateGroup() {
-        if (!isElementPreset(By.name("new"))) {
+        if (!isElementPresent(By.name("new"))) {
             driver.findElement(By.linkText("groups")).click();
         }
         driver.findElement(By.name("new")).click();
@@ -36,7 +36,7 @@ public class GroupCreationTests {
         driver.findElement(By.linkText("group page")).click();
     }
 
-    private boolean isElementPreset(By locator) {
+    private boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);
             return true;
@@ -47,7 +47,7 @@ public class GroupCreationTests {
 
     @Test
     public void canCreateGroupWithEmptyName() {
-        if (!isElementPreset(By.name("new"))) {
+        if (!isElementPresent(By.name("new"))) {
             driver.findElement(By.linkText("groups")).click();
         }
         driver.findElement(By.name("new")).click();
