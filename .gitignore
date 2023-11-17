@@ -1,5 +1,5 @@
 .gradle
-out/
+**/out/
 **/build/
 !src/**/build/
 
